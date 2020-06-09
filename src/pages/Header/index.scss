@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   width: 100%;
   height: 70px;
   display: flex;
@@ -6,27 +7,30 @@
   align-items: center;
   background: url('../../assets/imgs/toping.png') no-repeat top center,url('../../assets/imgs/topBg.png') no-repeat top center;
   background-size: contain;
+  display: flex;
+  justify-content: center;
   .time {
-    position: absolute;
-    top: 1px;
-    margin-left: 470px;
+    width: 10%;
+    margin-top: -20px;
     .time1{
       letter-spacing: 4px;
-      font-size: 22px;
+      font-size: 19px;
     }
     .time2{
-      font-size: 14px;
+      font-size: 12px;
     }
   }
   .title {
     font-size: 28px;
     margin-bottom: 8px;
+    width: 18%;
+    text-align: center;
   }
   .desc {
-    position: absolute;
-    top: 15px;
+    text-align: right;
+    width: 10%;
     color: #fff;
     font-size: 20px;
-    margin-right: 400px;
+    margin-bottom: 10px;
   }
 }
