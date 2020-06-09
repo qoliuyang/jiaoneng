@@ -25,7 +25,7 @@ export default class index extends PureComponent {
   }
 
   getScale=() => {
-    const {width=1920, height=538.5} = this.props
+    const {width=1920, height=540} = this.props
     const ww=window.innerWidth/width
     const wh=window.innerHeight/height
     return ww<wh?ww: wh
@@ -38,7 +38,7 @@ export default class index extends PureComponent {
   }, 500)
   
   render() {
-    const {width=1920, height=1080} = this.props
+    const {width=1920, height=538} = this.props
     const {scale} = this.state
     return (
       <div

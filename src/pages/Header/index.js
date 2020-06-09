@@ -8,10 +8,21 @@ SvgIcon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_624956_br6r8nb9msp.js',
 });
 
-const FORMAT = 'YYYY/MM/DD HH:mm:SS';
+const FORMAT = 'HH:mm:SS';
 
 const Header = memo(() => {
   const [time, setTime] = useState(+new Date());
+  const [weather, setData] = useState({});
+  useEffect(() => {
+    const apiUrl = 'https://www.tianqiapi.com/api/?version=v1&appid=72948273&appsecret=ZXfB1t5v';
+    async function fetchData() {
+      const response = await axios(apiUrl);
+      console.log(response.data)
+      setData(response.data);
+    }
+    fetchData();
+    
+  },[]);
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -19,26 +30,24 @@ const Header = memo(() => {
     }, 1000);
     return () => clearInterval(t);
   }, []);
-
-  useEffect(() => {
-      const apiUrl = "https://www.tianqiapi.com/api/?version=v1&appid=94337282&appsecret=ubnNlx2h";
-      return axios
-        .get(apiUrl)
-        .then(resolve => {
-            console.log('resolve',resolve)
-        })
-  }, []);
-  
+  const getWeek = () =>{
+    const date=new Date(); 
+    const day=date.getDay();
+    // eslint-disable-next-line no-array-constructor
+    const weeks=new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+    const week=weeks[day];
+        return week
+  }
   return (
     <div className={styles.header}>
-      <div className={styles.time}>
-        <SvgIcon icon="icon-time" className={styles.timeIcon} />
-        {moment(time).format(FORMAT)}
-      </div>
-      <div className={styles.title}>BI平台实时数据看板</div>
       <div className={styles.desc}>
-        <SvgIcon icon="icon-shezhi" className={styles.setIcon} />
-        统计维度：昨天
+        {weather.data&&weather.data[0].tem}
+      </div>
+      <div className={styles.title}>今日交能</div>
+
+      <div className={styles.time}>
+        <p className={styles.time1}>{moment(time).format(FORMAT)}</p>
+        <p className={styles.time2}>{`${getWeek()} ${moment(time).format('YYYY.MM.DD')}`}</p>
       </div>
     </div>
   );
