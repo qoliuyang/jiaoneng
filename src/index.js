@@ -7,6 +7,8 @@ import { socket } from './utils/socket';
 import { SAVE_LOAN, SAVE_MAP } from './store/types';
 import Router from './router';
 import configStore from './store';
+import "./icons/index.js";
+import './font.css';
 import './global.scss';
 
 const store = configStore();

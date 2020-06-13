@@ -4,20 +4,56 @@
   font-size: 30px;
 
   .numberItem {
-    // width: 20px;
-    height: 70px;
-    line-height: 70px;
+    position: relative;
+    height: 25px;
+    line-height: 25px;
+    width: 15px;
     text-align: center;
-    // width: 0.18rem;
-    // height: 0.24rem;
-    // line-height: 0.24rem;
     display: inline-block;
     overflow: hidden;
-
+    margin-left: 1px;
+    margin-right: 1px;
+    &:before{
+      content: '';
+      display: block;
+      opacity: 0.66;
+      background: #2691BF;
+      border-radius: 1.82px 1.82px 0 0;
+      border-radius: 1.82px 1.82px 0px 0px;
+      width: 100%;
+      height: 12px;
+    }
+    &:after{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      content: '';
+      display: block;
+      opacity: 0.66;
+      transform: rotate(-180deg);
+      background: #0059B3;
+      border-radius: 1.82px 1.82px 0 0;
+      border-radius: 1.82px 1.82px 0px 0px;
+      width: 100%;
+      height: 12px;
+    }
+    .number{
+      width: 100%;
+      position: absolute;
+      z-index: 6;
+      top: 0;
+      left: 0;
+    }
     &.comma {
-      width: 22px;
-      font-size: 40px;
+      width: 4.5px;
+      font-size: 24px;
       text-align: left;
+      &:before{
+        width: 0;
+      }
+      &:after{
+        width: 0;
+      }
     }
 
     &.active {

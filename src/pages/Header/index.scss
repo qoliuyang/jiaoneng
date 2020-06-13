@@ -9,6 +9,26 @@
   background-size: contain;
   display: flex;
   justify-content: center;
+  &:before{
+    content: '';
+    height: 24px;
+    background: url(../../assets/imgs/topleft.png) no-repeat top left;
+    width: 20%;
+    position: absolute;
+    top: 0;
+    left: 12%;
+    background-size: contain;
+  }
+  &::after{
+    content: '';
+    height: 24px;
+    background: url('../../assets/imgs/topright.png') no-repeat top left;
+    width: 20%;
+    position: absolute;
+    top: 0;
+    right: 11.4%;
+    background-size: contain;
+  }
   .time {
     width: 10%;
     margin-top: -20px;
@@ -32,5 +52,13 @@
     color: #fff;
     font-size: 20px;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+    >span{
+      letter-spacing: 3.2px;
+      color: rgba(255,255,255,0.90);
+      font-weight: bold;
+      margin-left: 10px;
+    }
   }
 }

@@ -1,12 +1,8 @@
 import React, { memo, useState, useEffect } from 'react';
 import axios from 'axios';
 import { moment } from '@/utils/util';
-import SvgIcon from '@/components/SvgIcon';
 import styles from './index.scss';
-
-SvgIcon.createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_624956_br6r8nb9msp.js',
-});
+import SvgIcon from "@/components/SvgIcon";
 
 const FORMAT = 'HH:mm:SS';
 
@@ -17,7 +13,6 @@ const Header = memo(() => {
     const apiUrl = 'https://www.tianqiapi.com/api/?version=v1&appid=72948273&appsecret=ZXfB1t5v';
     async function fetchData() {
       const response = await axios(apiUrl);
-      console.log(response.data)
       setData(response.data);
     }
     fetchData();
@@ -41,7 +36,8 @@ const Header = memo(() => {
   return (
     <div className={styles.header}>
       <div className={styles.desc}>
-        {weather.data&&weather.data[0].tem}
+        {weather.data&& <SvgIcon iconClass={weather.data[0].wea_img} />}
+        <span>{weather.data&&weather.data[0].tem}</span>
       </div>
       <div className={styles.title}>今日交能</div>
 

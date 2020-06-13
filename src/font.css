@@ -1,0 +1,30 @@
+@font-face {
+    font-family:'DINPro-Bold';
+    src: url('./fonts/DINPro-Bold.otf');
+    font-weight: normal;
+    font-style: normal;
+    }
+  @font-face {
+    font-family:'DINPro-Medium';
+    src: url('./fonts/DINPro-Medium.otf');
+    font-weight: normal;
+    font-style: normal;
+    }
+  @font-face {
+    font-family:'DINPro-Regular';
+    src: url('./fonts/DINPro-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+    }
+  @font-face {
+    font-family:'DS-Digital-Bold';
+    src: url('./fonts/DS-DIGIB-2.ttf');
+    font-weight: normal;
+    font-style: normal;
+    }
+  @font-face {
+    font-family:'Trivial';
+    src: url('./fonts/Trivial-Bold-4.otf');
+    font-weight: normal;
+    font-style: normal;
+    }
