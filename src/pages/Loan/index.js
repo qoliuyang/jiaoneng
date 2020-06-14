@@ -60,7 +60,6 @@ export default class index extends PureComponent {
     const loanStatisticalData = genLoanStatistical(loanStatistical, labels);
     const ageStatisticalData = genAgeStatistical(ageStatistical);
     const ageAverageData = genAgeAverage(ageAverage);
-
     return (
       <div className={styles.topRight}>
         <Card title="数据总览">

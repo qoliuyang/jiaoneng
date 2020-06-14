@@ -68,7 +68,6 @@
     .left{
       position: relative;
       width: 31%;
-      font-family: 'DS-Digital-Bold';
       .topBg{
         position: absolute;
         top: 0;
@@ -84,52 +83,6 @@
         height: 135px;
         background: url('../../assets/imgs/bottomleftbg.png') no-repeat top right;
         background-size: contain;
-      }
-      .content{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        padding-top: 30px;
-        .title{
-          font-family: 'Trivial';
-          width: 82%;
-          margin: 0 auto;
-          background: url('../../assets/imgs/yunyingleft.png') no-repeat top left,url('../../assets/imgs/yunyingright.png') no-repeat top right;
-          background-size: contain;
-          text-align: center;
-          color: #0099E6;
-          line-height: 20px;
-          font-size: 18px;
-        }
-        .maincontent{
-          display: flex;
-          justify-content: space-between;
-          padding-top: 20px;
-          padding-left: 20px;
-          padding-right: 20px;
-          .item{
-            width: 33%;
-            .name{
-              border-left: 1px solid #0099E6;
-              background-image: linear-gradient(90deg, rgba(0,127,191,0.50) 0%, rgba(0,127,191,0.00) 100%);
-              width: 90%;
-              height: 18px;
-              line-height: 18px;
-              font-size: 12px;
-              color: rgba(255,255,255,0.90);
-              padding-left: 5px;
-              >span{
-                color: rgba(255,255,255,0.50);
-              }
-            }
-            .scrollWrap{
-              padding-top: 19px;
-              padding-bottom: 24px;
-            }
-          }
-        }
       }
     }
     .center{

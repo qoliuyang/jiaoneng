@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-concat */
 import echarts from 'echarts';
 
 const styles = 'display:inline-block;width:8px;height:8px;border-radius:4px;margin-right:6px;';
@@ -773,4 +774,494 @@ export function genEquipment(data) {
     ],
     series,
   };
+}
+// new add 
+export function genIndustryRadar(){
+  const indicator = [{
+    text: '首末班车准点率（辆次）',
+    max: 5000,
+},
+{
+    text: '出车率',
+    max: 5000,
+},
+{
+    text: '起迄站准点率',
+    max: 5000,
+},
+{
+    text: '实际/计划\n运营里程占比',
+    max: 5000,
+},
+{
+    text: '实际/计划\n班次执行率',
+    max: 5000,
+},
+];
+const dataArr = [
+    {
+        value: [3200, 3000, 3400, 2000, 3900],
+        name:'สิ่งที่เกิดขึ้นจริง',
+        itemStyle: {
+            normal: {
+                lineStyle: {
+                    color: '#ff0000',
+                },
+            },
+        },
+         areaStyle: {
+                normal: { // 单项区域填充样式
+                    color: {
+                        type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 1,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0,
+                            color: '#3272FA',
+                        }, {
+                            offset: 1,
+                            color: '#32AAFA ',
+                        }],
+                        globalCoord: false,
+                    },
+                    opacity: 1 ,
+                },
+            },
+    },
+     
+];
+const colorArr = ['#3272FA','#D31145'];
+return {
+  color: colorArr,
+  legend: {
+      show: false,
+  },
+  radar: {
+      name: {
+          textStyle: {
+              color: 'rgba(255,255,255,0.90)',
+              fontSize: 10,
+              padding: [1, 0],
+          },
+      },
+      nameGap: 6,
+      radius:'50%',
+      indicator,
+      splitArea: { // 坐标轴在 grid 区域中的分隔区域，默认不显示。
+          show: true,
+          areaStyle: { // 分隔区域的样式设置。
+              color: ['rgba(255,255,255,0)', 'rgba(255,255,255,0)'], // 分隔区域颜色。分隔区域会按数组中颜色的顺序依次循环设置颜色。默认是一个深浅的间隔色。
+          },
+      },
+      axisLine: {
+          show: true,
+          lineStyle: {
+              color: '#326AD6',
+          },
+      },
+      splitLine: {
+          lineStyle: {
+              color: '#326AD6', // 分隔线颜色
+              width: 1, // 分隔线线宽
+          },
+      },
+  },
+  series: [{
+      type: 'radar',
+      symbolSize: 0,
+      data: dataArr,
+  }],
+    }
+}
+export function genBerthPie(){
+ const data = 240; // 数值大小
+ const max = 500; // 满刻度大小
+return {
+  // "color": ["#fff", 'rgba(255,255,255,.5)', 'rgba(255,255,255,.2)'],
+  tooltip:{
+    show:false,
+  },
+  "series": [{
+      "type": "pie",
+      "center": ["40%", "50%"],
+      "radius": ["49%", "50%"],
+      "hoverAnimation": false,
+
+      "data": [{
+              "name": "",
+              "value": data,
+              "itemStyle": {
+                  // shadowColor: '#103B84',
+                  // shadowBlur: 20,
+                 
+                  borderWidth: 4,
+                  borderColor: {
+                      colorStops: [{
+                          offset: 0,
+                          color: '#7D87FF', // 0% 处的颜色
+                      }, {
+                          offset: 1,
+                          color: '#F8EBCB', // 100% 处的颜色
+                      }],
+                  },
+              },
+              "label": {
+                  "show": true,
+                  "position": "center",
+                  "color": "#fff",
+                  "fontSize": 24,
+                  "fontWeight": "bold",
+                  "formatter": function(o) {
+                      return data
+                  }
+              },
+              labelLine: {
+                  show: false,
+                  emphasis: {
+                      show: false,
+                  },
+              },
+          },
+          // { // 画中间的图标
+          //     "name": "",
+          //     "value": 0,
+          //     "label": {
+          //         position: 'inner',
+          //         backgroundColor: '#ffff',
+          //         width: 0,
+          //         height: 0,
+          //         borderRadius: 4,
+          //         padding:4,
+          //         align:'right',
+          //     },
+          // },
+           { // 画剩余的刻度圆环
+              "name": "",
+              "value": max - data,
+              "label": {
+                  show: false,
+              },
+              labelLine: {
+                  show: false,
+                  emphasis: {
+                      show: false,
+                  },
+              },
+              
+              "itemStyle": {
+                  shadowColor: '#103B84',
+                  shadowBlur: 20,
+                 
+                  borderWidth: 2,
+                  borderColor:'#103B84',
+                  
+              },
+          },
+      ],
+  },
+  // 刻度尺
+      {
+          // name: "白色圈刻度",
+          type: "gauge",
+          "center": ["40%", "50%"],
+          radius: "70%",
+          startAngle: 225, // 刻度起始
+          endAngle: -134.8, // 刻度结束
+          z: 4,
+          axisTick: {
+              show: true,
+               lineStyle: {
+                  width: 2,
+                  color: '#405594',
+              },
+          },
+          splitLine: {
+              length: 2, // 刻度节点线长度
+              lineStyle: {
+                  width: 2,
+                  color: '#405594',
+              }, // 刻度节点线
+          },
+          axisLabel: {
+              color: 'rgba(255,255,255,0)',
+              fontSize: 12,
+          }, // 刻度节点文字颜色
+          pointer: {
+              show: false,
+          },
+          axisLine: {
+              lineStyle: {
+                  opacity: 0,
+              },
+          },
+          detail: {
+              show: false,
+          },
+          data: [{
+              value: 0,
+              name: "",
+          }],
+      }],
+}
+}
+export function genDrainBar(){
+  return {
+    grid: {
+        top: '15%',
+        right: '10%',
+        left: '13%',
+        bottom: '15%',
+    },
+    xAxis: [{
+        type: 'category',
+        boundaryGap : false,
+        data: ['1', '2', '3', '4','5', '6', '7', '8','9', '10', '11', '12'],
+        offset:0,
+        axisLabel: {
+            margin: 2,
+            color: '#fff',
+            textStyle: {
+                fontSize: 10,
+            },
+        },
+        axisLine: {
+            lineStyle: {
+                color: 'rgba(107,107,107,0.37)',
+            },
+        },
+        axisTick:{
+          length:1,
+          lineStyle:{
+              color:'rgba(255,255,255,0.9)',
+          },
+      },
+    }],
+    yAxis: [{
+        axisLabel: {
+            formatter: '{value}',
+            color: '#fff',
+            textStyle: {
+                fontSize: 10,
+            },
+        },
+        axisLine: {
+            show: false,
+        },
+        splitLine: {
+            lineStyle: {
+                color: 'rgba(61,107,153,0.16)',
+            },
+        },
+    }],
+    series: [{
+        type: 'bar',
+        data: [40, 80, 20, 10,90, 80, 120, 10,40, 80, 20, 50],
+        barWidth: '4px',
+        itemStyle: {
+            normal: {
+                color(){
+                    return new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: '#7541FB', // 0% 处的颜色
+                    }, {
+                        offset: 1,
+                        color:  '#62ADFE',// 100% 处的颜色
+                    }], false)
+                },
+                barBorderRadius: [30, 30, 0, 0],
+            },
+        },
+    },
+],
+}
+}
+export function genPassengerLine(){
+  return {
+    grid: {
+      top: '15%',
+      right: '10%',
+      left: '13%',
+      bottom: '15%',
+    },
+    xAxis: [{
+        type: 'category',
+        boundaryGap : false,
+        data: ['1','2','3','4','5','6'],
+        nameLocation:'center',
+        axisLabel: {
+          margin: 2,
+          color: 'rgba(255,255,255,0.9)',
+          textStyle: {
+              fontSize: 10,
+          },
+        },
+        axisLine: {
+            show: false,
+            lineStyle: {
+                color: "rgba(255,255,255,0.9)",
+            },
+        },
+        axisTick:{
+          length:1,
+          lineStyle:{
+              color:'rgba(255,255,255,0.9)',
+          },
+      },
+    }],
+    yAxis: [{
+        type: 'value',
+        splitNumber: 4,
+        splitLine: {
+            lineStyle: {
+                color: 'rgba(61,107,153,0.16)',
+            },
+        },
+        axisLine: {
+            show: false,
+            lineStyle: {
+                color: "rgba(255,255,255,0.9)",
+            },
+        },
+        axisTick:{
+          show:false,
+        },
+    }],
+    series: [{
+        name: '',
+        type: 'line',
+        data: [23,60,20,36,23,85],
+        symbol: 'none',
+        smooth: true,
+        lineStyle: {
+            normal: {
+                width: 2,
+                color: {
+                    type: 'linear',
+
+                    colorStops: [{
+                        offset: 0,
+                        color: '#13AFFF', // 0% 处的颜色
+                    },
+                    {
+                        offset: 0.8,
+                        color: '#0989FB', // 100% 处的颜色
+                    },{
+                        offset: 1,
+                        color: '#F803C6', // 100% 处的颜色
+                    }],
+                    globalCoord: false, // 缺省为 false
+                },
+            },
+        },
+        areaStyle: {
+          normal: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                      offset: 0,
+                      color: 'rgba(19,175,255,0.3)',
+                  },
+                  {
+                      offset: 1,
+                      color: 'rgba(19,175,255,0)',
+                  },
+              ], false),
+              shadowColor: 'rgba(19,175,255, 0.9)',
+              shadowBlur: 20,
+          },
+      },
+    }],
+}
+}
+export function genHotlinePie(){
+  return {
+    tooltip: {
+        trigger: 'item',
+    },
+    series: [{
+        type: 'pie',
+        center: ['45%', '50%'],
+        radius: ['35%', '55%'],
+        // clockwise: true,
+        // avoidLabelOverlap: true,
+        hoverOffset: 0,
+        labelLine: {
+            normal: {
+                length: 10,
+                length2: 50,
+                lineStyle: {
+                    width: 1,
+                },
+            },
+        },
+        label: {
+            normal: {
+                formatter(params) {
+                    if (params.name !== '') {
+                        if(params.dataIndex === 0){
+                          return `{white|${  params.name  }}` + `\n` + `\n` + `{value1|${  params.value  }}`;
+                        }else{
+                          return `{white|${  params.name  }}` + `\n` + `\n` + `{value2|${  params.value  }}`;
+                        }
+                        
+                    } else {
+                        return '';
+                    }
+                },
+                padding: [0, -55, 0, -55],
+                rich: {
+                    value1: {
+                        fontSize: 10,
+                        color: 'rgba(230,103,156,1)',
+                    },
+                    value2: {
+                      fontSize: 10,
+                      color: 'rgba(14,141,230,1)',
+                  },
+                    white: {
+                        fontSize: 10,
+                        color: 'rgba(255,255,255,0.90)',
+                    },
+                },
+
+            },
+        },
+        data: [{
+            'name': '热线工单办结',
+            'value': 900,
+            itemStyle: {
+                normal: {
+                    color: { // 完成的圆环的颜色
+                        colorStops: [{
+                            offset: 0,
+                            color: '#F5C8C4', // 0% 处的颜色
+                        }, {
+                            offset: 1,
+                            color: '#DF84C0', // 100% 处的颜色
+                        }],
+                    },
+                }, 
+            },
+        }, {
+            'name': '热线工单',
+            'value': 1200,
+            itemStyle: {
+                normal: {
+                    color: { // 完成的圆环的颜色
+                        colorStops: [{
+                            offset: 0,
+                            color: '#4196E3', // 0% 处的颜色
+                        }, {
+                            offset: 0.5,
+                            color: '#533FE9', // 0% 处的颜色
+                        }, {
+                            offset: 1,
+                            color: '#439BE3', // 100% 处的颜色
+                        }],
+                    },
+                }, 
+            },
+        }],
+    }],
+}
 }

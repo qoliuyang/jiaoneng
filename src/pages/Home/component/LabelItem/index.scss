@@ -1,0 +1,30 @@
+.labelContent{
+    .item{
+        margin-bottom: 15px;
+        display: flex;
+        >i{
+            width: 56px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0,119,179,0.32);
+            border-radius: 4px;
+            svg{
+                width: 20px;
+                height: 20px;
+            }
+        }
+        .info{
+            margin-left: 10px;
+            .name{
+                font-size: 12px;
+                color: rgba(255,255,255,0.90);
+            }
+            .num{
+                font-size: 16px;
+                color: #01FFFF;
+            }
+        }
+    }
+}
