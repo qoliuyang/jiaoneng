@@ -10,7 +10,7 @@ import Loan from '@/pages/Loan';
 // import Product from '@/pages/Product';
 // import Trading from '@/pages/Trading';
 import LeftComponent from './component/LeftComponent/index';
-import CenterComponent from './component/CenterComponent/index';
+import CenterComponent from './component/CenterComponent/index.js';
 import RightComponent from './component/RightComponent/index';
 
 import styles from './index.scss';
