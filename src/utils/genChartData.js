@@ -1433,104 +1433,94 @@ return {
 }
 export function genHealthLiquidfill(){
   const val1data2 = [{
-    value: 0.2,
-    name: '装配完成率',
+    value: 98,
+    name: '公交健康指数',
 },
 {
-    value: 0.3,
-    name: '班检完成率',
+    value: 98,
+    name: '燃气健康指数',
 },
 {
-    value: 0.4,
-    name: '初检完成率',
+    value: 98,
+    name: '自来水健康指数',
 },
 {
-    value: 0.3,
-    name: '复检完成率',
+    value: 96,
+    name: '排水健康指数',
 },
 {
-    value: 0.1,
-    name: '出厂检完成率',
+    value: 96,
+    name: '停车监控指数',
 },
 ]
 
 const arr = ['middleLost', 0.6, val1data2, '今日完成进度']
     return {
-      tooltip: {
-          trigger: 'item',
-          formatter(res) {
-              console.log(res)
+      // tooltip: {
+      //     trigger: 'item',
+      //     formatter(res) {
+      //         console.log(res)
   
-              if (res.componentSubType == 'liquidFill') {
-                  return `${res.seriesName  }: ${  (res.value * 10000 / 100).toFixed(2)  }%`;
-              } else {
-                  return `<span class="ii" style="background:${  res.color  } "></span>${  res.name  }:<br/> ${  res.data.value}`;
-              }
-          },
-      },
+      //         if (res.componentSubType === 'liquidFill') {
+      //             return `${res.seriesName  }: ${  (res.value * 10000 / 100).toFixed(2)  }%`;
+      //         } else {
+      //             return `<span class="ii" style="background:${  res.color  } "></span>${  res.name  }:<br/> ${  res.data.value}`;
+      //         }
+      //     },
+      // },
       series: [{
               type: 'liquidFill',
-              radius: '40%',
+              radius: '35%',
               center: ['50%', '50%'],
               data: [0.5, 0.5], // data个数代表波浪数
-              color: ['rgba(255,0,0,0.3)', 'rgba(255,0,0,0.1)'],
+              color: ['rgba(51,126,199,0.3)', 'rgba(51,126,199,0.1)'],
               backgroundStyle: {
                   borderWidth: 1,
                   color: 'rgb(22,61,133,0.1)',
               },
               label: {
                   normal: {
-                      show: false,
                       formatter: '9',
                       textStyle: {
-                          fontSize: 70,
+                          fontSize: 15,
                       },
                   },
-              },
-              itemStyle: {
-                  opacity: 0.9, // 波浪的透明度
-                  shadowBlur: 10, // 波浪的阴影范围
-                  shadowColor: '#ff0000', // 阴影颜色
               },
               outline: {
                   show: true,
                   borderDistance: 0,
                   itemStyle: {
-                      borderColor: '#296695', // 边框的颜色
+                      borderColor: '#327bbf', // 边框的颜色
                       borderWidth: 1, // 边框的宽度
                       shadowBlur: 5, // 外部轮廓的阴影范围 一旦设置了内外都有阴影
-                      shadowColor: '#296695', // 外部轮廓的阴影颜色 
+                      shadowColor: '#327bbf', // 外部轮廓的阴影颜色 
                   },
               },
           },
           {
               type: 'pie',
               radius: ['42%', '50%'],
-              color: ['#c487ee', '#deb140', '#49dff0', '#034079', '#6f81da', '#00ffb4'],
+              color: ['#6f5ff5', '#66ca98', '#d56f9a', '#dfb75a', '#6ab8f9', '#00ffb4'],
               hoverAnimation: false, // //设置饼图默认的展开样式
               label: {
                   normal: {
                       formatter(params) {
                           if (params.name !== '') {
                               if (params.dataIndex === 0) {
-                                  return `{white|${  params.name  }}` + `\n` + `\n` + `{value1|${  params.value  }}`;
+                                  return `{white|${  params.name  }}` + `\n` + `\n` + `{size|${  params.value  }}`;
                               } else {
-                                  return `{white|${  params.name  }}` + `\n` + `\n` + `{value2|${  params.value  }}`;
+                                  return `{white|${  params.name  }}` + `\n` + `\n` + `{size|${  params.value  }}`;
                               }
   
                           } else {
                               return '';
                           }
                       },
-                      padding: [0, -55, 0, -55],
+                      padding: [4, -70, 0, -70],
                       rich: {
-                          value1: {
-                              fontSize: 10,
-                              color: 'rgba(230,103,156,1)',
-                          },
-                          value2: {
-                              fontSize: 10,
-                              color: 'rgba(14,141,230,1)',
+                          size:{
+                            fontSize: 14,
+                            // align:'left',
                           },
                           white: {
                               fontSize: 10,
@@ -1542,24 +1532,11 @@ const arr = ['middleLost', 0.6, val1data2, '今日完成进度']
               },
               labelLine: {
                   normal: {
-                      length: 10,
-                      length2: 50,
+                      length: 6,
+                      length2: 70,
                       lineStyle: {
                           width: 1,
                       },
-                  },
-              },
-  
-              itemStyle: { // 此配置
-                  normal: {
-                      borderWidth: 2,
-                      borderColor: '#fff',
-                  },
-                  emphasis: {
-                      borderWidth: 0,
-                      shadowBlur: 2,
-                      shadowOffsetX: 0,
-                      shadowColor: 'rgba(0, 0, 0, 0.5)',
                   },
               },
               data: arr[2],

@@ -41,6 +41,61 @@
             }
             .itemSmall{
                 width: 40%;
+                .list{
+                    display: flex;
+                    margin-bottom: 12px;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                    >div{
+                        width: 48px;
+                        height: 48px;
+                        flex-shrink: 0;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+                    .info{
+                        width: 100%;
+                        margin-left: 8px;
+                        .name{
+                            font-size: 10px;
+                            line-height: 1;
+                            color: rgba(255,255,255,0.90);
+                            margin-bottom: 4px;
+                        }
+                        .redNum{
+                            font-size: 18px;
+                            color: #E6679C;
+                        }
+                        .greenNum{
+                            font-size: 18px;
+                            color: #24CE93;
+                        }
+                        .bluNum{
+                            font-size: 18px;
+                            color: #4DB9FF;
+                        }
+                    }
+                    .water{
+                        align-items: center;
+                        justify-content: center;
+                        background: url(../../../../assets/imgs/waterJPG.png) no-repeat center;
+                        background-size: contain;
+                    }
+                    .gas{
+                        align-items: center;
+                        justify-content: center;
+                        background: url(../../../../assets/imgs/gasJPG.png) no-repeat center;
+                        background-size: contain;
+                    }
+                    .parking{
+                        align-items: center;
+                        justify-content: center;
+                        background: url(../../../../assets/imgs/parkingJPG.png) no-repeat center;
+                        background-size: contain;
+                    }
+                }
             }
         }
     }
