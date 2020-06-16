@@ -72,6 +72,7 @@
     "echarts": "^4.2.1",
     "echarts-for-react": "^2.0.15-beta.0",
     "echarts-gl": "^1.1.1",
+    "echarts-liquidfill": "^2.0.6",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",

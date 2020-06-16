@@ -3031,6 +3031,11 @@ echarts-gl@^1.1.1:
     claygl "^1.2.1"
     zrender "^4.0.4"
 
+echarts-liquidfill@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/echarts-liquidfill/-/echarts-liquidfill-2.0.6.tgz#0668dc61d87a6262003090bd32c55aa8108c252e"
+  integrity sha512-p+AH0O9/BtwXMQQyhjJbMZo+GwRAgWG/DCyK5r27PQzpS0UWrgXu57MyEFc0A8Ub3sRuqEu08BuxwHICBkSWSQ==
+
 echarts@^4.2.1:
   version "4.2.1"
   resolved "https://registry.npmjs.org/echarts/-/echarts-4.2.1.tgz#9a8ea3b03354f86f824d97625c334cf16965ef03"
