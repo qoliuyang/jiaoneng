@@ -9,7 +9,9 @@ import Loan from '@/pages/Loan';
 // import Customer from '@/pages/Customer';
 // import Product from '@/pages/Product';
 // import Trading from '@/pages/Trading';
+import CenterComponent from './component/CenterComponent';
 import LeftComponent from './component/LeftComponent/index';
+import RightComponent from './component/RightComponent/index';
 
 import styles from './index.scss';
 
@@ -67,8 +69,14 @@ export default class index extends PureComponent {
             <div className={styles.bottomBg} />
             <LeftComponent />
           </div>
-          <div className={styles.center}><Loan /></div>
-          <div className={styles.right}>3</div>
+          <div className={styles.center}>
+            <CenterComponent />
+          </div>
+          <div className={styles.right}>
+            <div className={styles.topBg} />
+            <div className={styles.bottomBg} />
+            <RightComponent /> 
+          </div>
         </div>
         {/* <div className={styles.topLeft}>
           <Equipment />
